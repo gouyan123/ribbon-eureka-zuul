@@ -1,0 +1,19 @@
+
+server:
+  port: 8001
+spring:
+  application:
+    name: demo-service
+
+eureka:
+#  instance:
+#    lease-expiration-duration-in-seconds: 2   #续约过期时间：超过10s没有更新续约，则续约过期
+#    lease-renewal-interval-in-seconds: 2     #续约更新：9s更新一次续约
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    registry-fetch-interval-seconds: 1 #客户端每隔 5s，去拉取一次实例信息
+    serviceUrl:
+      defaultZone: http://localhost:8014/eureka
+
+

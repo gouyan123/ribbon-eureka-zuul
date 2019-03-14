@@ -1,0 +1,17 @@
+
+server:
+  port: 8014
+spring:
+  application:
+    name: eureka-server
+eureka:
+  instance:
+  server:
+    enable-self-preservation: false   # 关闭自我保护模式
+    eviction-interval-timer-in-ms: 1000 #清理无效实例信息
+    use-read-only-response-cache: false  #关闭只读缓存
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8014/eureka/

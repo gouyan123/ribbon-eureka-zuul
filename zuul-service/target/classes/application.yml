@@ -1,0 +1,39 @@
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 2   #��Լ����ʱ�䣺����10sû�и�����Լ������Լ����
+    lease-renewal-interval-in-seconds: 2     #��Լ���£�9s����һ����Լ
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    registry-fetch-interval-seconds: 1 #�ͻ���ÿ�� 5s��ȥ��ȡһ��ʵ����Ϣ
+    serviceUrl:
+      defaultZone: http://localhost:8014/eureka
+server:
+  port: 8080
+spring:
+  application:
+    name: zuul-service
+#  cloud:
+#    loadbalancer:
+#      retry:
+#        enabled: true
+
+demo-service:
+  ribbon:
+     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.AvailabilityFilteringRule
+    #���ؾ�������ʵ����
+#    NFLoadBalancerClassName: com.netflix.loadbalancer.BestAvailableRule
+#    #�������ò鿴�������Ƿ���
+#    NFLoadBalancerPingClassName:
+#    #�������б�Ĵ����࣬����ά���������б��
+#    NIWSServerListClassName:
+#    #��������������
+#    NIWSServerListFilterClassName:
+
+
+# ribbon.NFLoadBalancerRuleClassName=  spring-boot-user.ribbon
+#spring-boot-user:
+#  ribbon:
+
+
+

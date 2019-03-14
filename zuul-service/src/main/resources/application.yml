@@ -1,0 +1,34 @@
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 2   #续约过期时间：超过10s没有更新续约，则续约过期
+    lease-renewal-interval-in-seconds: 2     #续约更新：9s更新一次续约
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    registry-fetch-interval-seconds: 1 #客户端每隔 5s，去拉取一次实例信息
+    serviceUrl:
+      defaultZone: http://localhost:8014/eureka
+server:
+  port: 8080
+spring:
+  application:
+    name: zuul-service
+#  cloud:
+#    loadbalancer:
+#      retry:
+#        enabled: true
+
+demo-service:
+  ribbon:
+     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.AvailabilityFilteringRule
+    #负载均衡器的实现类
+#    NFLoadBalancerClassName: com.netflix.loadbalancer.BestAvailableRule
+#    #用于配置查看服务器是否存活
+#    NFLoadBalancerPingClassName:
+#    #服务器列表的处理类，用来维护服务器列表的
+#    NIWSServerListClassName:
+#    #服务器的拦截类
+#    NIWSServerListFilterClassName:
+
+
+
